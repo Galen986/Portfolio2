@@ -27,6 +27,7 @@ body {
     display: flex;
     justify-content: center;
     gap: 20px;
+    flex-wrap: wrap; /* Permite que o menu quebre em telas pequenas */
 }
 
 .menu-link {
@@ -35,6 +36,7 @@ body {
     color: black;
     text-decoration: none;
     transition: color 0.3s ease;
+    padding: 6px 10px;
 }
 
 .menu-link:hover {
@@ -53,15 +55,22 @@ body {
 
 .apresentacao-conteudo {
     flex: 1;
+    min-width: 250px;
     max-width: 600px;
     text-align: center;
     line-height: 1.6;
 }
 
+/* Imagem Responsiva */
 .apresentacao-imagem {
     flex: 1;
+    width: 100%;
     max-width: 300px;
+    min-width: 180px;
     border-radius: 8px;
+    height: auto; /* Mantém a proporção */
+    display: block;
+    margin: 0 auto;
 }
 
 /* Títulos e Texto */
@@ -75,6 +84,7 @@ body {
     font-size: 1rem;
     text-align: justify;
     color: #f6f6f6;
+    padding: 0 10px;
 }
 
 /* Rodapé */
@@ -84,5 +94,39 @@ body {
     text-align: center;
     padding: 10px;
     font-size: 0.875rem;
+    width: 100%;
+    margin-top: auto;
 }
 
+/* Responsividade */
+/* Tablets e telas menores */
+@media (max-width: 900px) {
+    .apresentacao {
+        flex-direction: column;
+        padding: 10px;
+    }
+    .apresentacao-conteudo, .apresentacao-imagem {
+        max-width: 100%;
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .cabecalho-menu {
+        gap: 10px;
+    }
+    .menu-link {
+        font-size: 1rem;
+        padding: 4px 6px;
+    }
+    .apresentacao-titulo {
+        font-size: 1.4rem;
+    }
+    .conteudo-texto1 {
+        font-size: 0.95rem;
+    }
+    .rodape {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+}
